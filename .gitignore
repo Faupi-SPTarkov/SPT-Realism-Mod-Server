@@ -2,7 +2,9 @@ node_modules/
 types/
 ProfileBackups/
 db/put_new_stuff_here/
+build/
 *.py
 *.zip
 *.bundle
 *.map
+package-lock.json
