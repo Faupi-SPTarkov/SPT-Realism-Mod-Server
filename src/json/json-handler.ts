@@ -121,7 +121,7 @@ export class JsonHandler {
         }
     }
 
-    private gearPusherHelper(fileItem: any, serverTemplates: Record<string, ITemplateItem>, logger: ILogger) {
+    private gearPusherHelper(fileItem: any, serverTemplates: Record<string, ITemplateItem>) {
         if (fileItem.ItemID in serverTemplates) {
             let serverItem = serverTemplates[fileItem.ItemID];
             let serverConfItems = serverItem._props.ConflictingItems;
@@ -267,6 +267,9 @@ export class JsonHandler {
                         }
                         if (jsonData[i].ModType !== undefined) {
                             this.modPusherHelper(jsonData[i], this.itemDB());
+                        }
+                        if (jsonData[i].ArmorClass !== undefined || jsonData[i].Comfort !== undefined) {
+                            this.gearPusherHelper(jsonData[i], this.itemDB());
                         }
                     }
                 }
